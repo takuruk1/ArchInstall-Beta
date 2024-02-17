@@ -1,7 +1,8 @@
-## Configures yay, and other packages needed.
-cd /opt
-sudo pacman -Sy
-sudo pacman -S git --noconfirm
-sudo git clone https://aur.archlinux.org/yay-git.git
-cd yay-git/
-makepkg -si --noconfirm
+## Installs packages needed
+sudo pacstrap -K /mnt base linux linux-fiirmware --noconfirm
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+echo "arch" >> /etc/hostname
+mkinitcpio -P
+passwd root root
+pause 'Press any key to reboot system, finished.'
