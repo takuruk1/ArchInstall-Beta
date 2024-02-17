@@ -1,3 +1,4 @@
+# Paritions the drive correctly
 echo -e "\nFormatting drive, please wait.\n"
 wipefs --all /dev/nvme0n1
 clear
